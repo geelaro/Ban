@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Ban</string>
+    <string name="title_book">书籍</string>
+    <string name="title_music">音乐</string>
+    <string name="title_movie">影视</string>
+</resources>
