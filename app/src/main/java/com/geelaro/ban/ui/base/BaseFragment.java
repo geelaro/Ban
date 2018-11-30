@@ -7,11 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by LEE on 2018/2/14.
  */
 
-public abstract class BaseFragment<V, T extends BasePresenter> extends Fragment {
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements IBaseView{
+
 
     @Nullable
     @Override
@@ -24,4 +27,21 @@ public abstract class BaseFragment<V, T extends BasePresenter> extends Fragment 
     protected abstract int createViewId();
 
     protected abstract void initView(View view);
+
+    protected abstract T createPresenter();
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showErrorMsg() {
+
+    }
 }

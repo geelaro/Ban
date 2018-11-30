@@ -1,5 +1,7 @@
 package com.geelaro.ban.net;
 
+import com.geelaro.ban.bean.top250.Root;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -9,13 +11,12 @@ import retrofit2.http.Query;
  */
 
 public interface DoubanApi {
-    @GET("/movie/in_theaters")
-    Observable<User> getMovieLive();
+    @GET("movie/in_theaters")
+    Observable<Root> getMovieLive();
 
-    @GET("/movie/top250")
-    Observable<User> getMovieTop250(@Query("start") int start,@Query("count") int count);
+    @GET("movie/top250")
+    Observable<Root> getMovieTop250(@Query("start") int start, @Query("count") int count);
 
-    class User{
-        public String title;
-    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.geelaro.ban.ui;
+package com.geelaro.ban.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -13,17 +13,37 @@ import java.util.Map;
  * Created by LEE on 2018/2/7.
  */
 
-public abstract class BaseActivity<V,T extends BasePresenter> extends AppCompatActivity {
+public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements IBaseView{
+
+    protected T mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(createResId());
 
+        mPresenter  = createPresenter();
 
     }
 
 
 
     public abstract int createResId();
+
+    protected abstract T createPresenter();
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showErrorMsg() {
+
+    }
 }

@@ -3,6 +3,7 @@
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="2dp"
     android:layout_marginTop="2dp">
 
@@ -38,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="16sp"
-                android:text="肖克申的救赎" />
+                tool:text="肖克申的救赎" />
 
 
             <TextView
@@ -47,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/card_margin"
                 android:textAlignment="textStart"
-                android:text="A Big Story" />
+                tool:text="A Big Story" />
 
             <TextView
                 android:id="@+id/movie_date"
@@ -55,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/card_margin"
                 android:textAlignment="textStart"
-                android:text="1984" />
+                tool:text="1984" />
 
             <TextView
                 android:id="@+id/movie_score"
@@ -63,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/card_margin"
                 android:textAllCaps="false"
-                android:text="评分: 9.6" />
+                tool:text="评分: 9.6" />
 
         </LinearLayout>
 

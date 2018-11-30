@@ -1,25 +1,34 @@
 package com.geelaro.ban.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.geelaro.ban.R;
 import com.geelaro.ban.ui.base.BaseActivity;
-import com.geelaro.ban.ui.presenter.MoviePresenter;
+import com.geelaro.ban.ui.fragment.BookFragment;
+import com.geelaro.ban.ui.fragment.MovieFragment;
+import com.geelaro.ban.ui.fragment.MusicFragment;
+import com.geelaro.ban.ui.fragment.Top250FilmFragment;
+import com.geelaro.ban.ui.presenter.MainPresenter;
 import com.geelaro.ban.ui.view.IMainView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseActivity<IMainView, MoviePresenter> implements
+public class MainActivity extends BaseActivity<MainPresenter> implements
         BottomNavigationView.OnNavigationItemSelectedListener, IMainView {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @BindView(R.id.navigation)
     BottomNavigationView navigationView;
-    private MoviePresenter moviePresenter;
+    private MainPresenter mainPresenter;
 
     private FragmentManager fragmentManager;
 
@@ -40,7 +49,9 @@ public class MainActivity extends BaseActivity<IMainView, MoviePresenter> implem
         //
 
         ButterKnife.bind(this);
-        moviePresenter = new MoviePresenter(this);
+        mainPresenter = new MainPresenter(this, this);
+        setSupportActionBar(toolbar);
+        //
         fragmentManager = getSupportFragmentManager();
         navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
@@ -55,8 +66,13 @@ public class MainActivity extends BaseActivity<IMainView, MoviePresenter> implem
     }
 
     @Override
+    protected MainPresenter createPresenter() {
+        return null;
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        moviePresenter.NavigationItemSelected(item);
+        mainPresenter.NavigationItemSelected(item);
 //        item.setChecked(true);
         return true;
     }
